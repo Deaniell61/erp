@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 27-11-2017 a las 12:50:13
+-- Tiempo de generación: 29-11-2017 a las 22:04:06
 -- Versión del servidor: 5.7.20-0ubuntu0.16.04.1
 -- Versión de PHP: 7.0.22-0ubuntu0.16.04.1
 
@@ -136,7 +136,7 @@ CREATE TABLE `compras` (
   `NoComprobante` varchar(45) DEFAULT NULL,
   `idDistribuidor` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
-  `idsucursal` int(11) NOT NULL
+  `idsucursal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -169,7 +169,7 @@ CREATE TABLE `cuentascobrar` (
   `estado` int(11) DEFAULT NULL,
   `CreditoDado` double DEFAULT NULL,
   `fecha_ant` date DEFAULT NULL,
-  `idsucursal` int(11) NOT NULL
+  `idsucursal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -188,7 +188,7 @@ CREATE TABLE `cuentaspagar` (
   `estado` int(11) DEFAULT NULL,
   `CreditoDado` double DEFAULT NULL,
   `fecha_ant` date DEFAULT NULL,
-  `idsucursal` int(11) NOT NULL
+  `idsucursal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -236,7 +236,7 @@ CREATE TABLE `empleados` (
   `Puesto` int(11) DEFAULT NULL,
   `estado` int(11) DEFAULT NULL,
   `sueldo` double DEFAULT NULL,
-  `idsucursal` int(11) NOT NULL
+  `idsucursal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -251,7 +251,7 @@ CREATE TABLE `gastos` (
   `Descripcion` text,
   `Monto` double DEFAULT NULL,
   `Estado` int(11) DEFAULT NULL,
-  `idsucursal` int(11) NOT NULL
+  `idsucursal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -269,7 +269,7 @@ CREATE TABLE `inventario` (
   `precioDistribuidor` double DEFAULT NULL,
   `cantidad` double DEFAULT NULL,
   `minimo` double DEFAULT '0',
-  `idsucursal` int(11) NOT NULL
+  `idsucursal` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -410,6 +410,13 @@ CREATE TABLE `proveedor` (
   `IdPais` int(11) DEFAULT NULL,
   `Estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`idproveedor`, `NombreEmpresa`, `Direccion`, `Telefono`, `Nit`, `CuentaDepoito`, `IdDepartamento`, `IdMuniciopio`, `IdPais`, `Estado`) VALUES
+(8, 'CF', '', 'CF', 'CF', '', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -960,7 +967,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `puestos`
 --
